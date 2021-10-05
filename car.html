@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Car Details</title>
+    
+</head>
+
+<body>
+    <header>SrinadhPonugoti orders a car</header>
+    <h2>Getting input</h2>
+
+    <form>
+      
+        <input type="checkbox" class="form-check-input" id="cb_electric" name="carDetails" value="electric">
+        <label for="cb1_cheese" class="form-check-label">electric</label></br>
+   
+    
+      
+        <input type="checkbox" class="form-check-input" id="cb_ac" name="carDetails" value="ac">
+        <label for="cb1_olive" class="form-check-label">ac</label></br>
+        
+       
+      
+        <input type="checkbox" class="form-check-input" id="cb_gps" name="carDetails" value="gps">
+        <label for="cb1_onion" class="form-check-label">gps</label></br>
+        <br>
+     
+        <input type="button" class="btn btn-primary" onclick="orderCar()" value="Order a car" >
+      </form>
+      <br>
+    <form>
+        <div class="form-group" style="width: 25%;">
+        <label for="form_property" class="form-label">Enter a property</label>
+        <input type="text" class="form-control" id="form_property" name="form_property" value="color">
+    </div>
+        <br>
+        <div class="form-group" style="width: 25%;">
+        <label for="form_value" class="form-label">Enter a value</label>
+        <input type="text" class="form-control" id="form_value" name="form_value" autofocus> <br>
+    </div>
+        <input type="button" class="btn btn-primary" onclick="updateCar()" value="Update the car" >
+    </form>
+    <br>
+    <p id="left">This text will be replaced </p>
+    <br>
+    <script>
+        my_car =""
+        function orderCar() {
+            my_car =""
+            console.log("Getting form values")
+            isElectric = document.getElementById("cb_electric").checked
+            isAc = document.getElementById("cb_ac").checked
+            isGps = document.getElementById("cb_gps").checked
+            
+            if(isElectric){
+                my_car=my_car+"Electic: true, "
+            }else{
+                my_car=my_car+"Electic: false, "
+            }
+            if(isAc){
+                my_car=my_car+"Ac: true, "
+            }else{
+                my_car=my_car+"Ac: false, "
+            }
+            if(isGps){
+                my_car=my_car+"Gps: true"
+            }else{
+                my_car=my_car+"Gps: false"
+            }
+            out = document.getElementById("left")
+            out.innerHTML = my_car
+
+        }
+
+        function updateCar() {
+
+            property =document.getElementById("form_property").value
+            value = document.getElementById("form_value").value
+            my_car=my_car+", Property: "+property+", value: "+value
+            out = document.getElementById("left")
+            out.innerHTML = my_car
+        }
+    </script>
+
+</body>
+
+</html>

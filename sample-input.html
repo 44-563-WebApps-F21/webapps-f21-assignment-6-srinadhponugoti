@@ -12,13 +12,19 @@
     <label for="form1_nick">What is your nickname </label>
     <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <input type="button" onclick="resolveForm()" value="Get values from form" id="processesButton" class="btn btn-primary">
 </form>
 
 
 <p id="result">This text will be replaced </p>
+<br>
+
+<img src="images/owl.jpg" class="img-thumbnail" alt="Ape" onclick="newImage();" id="images" style="width: 200; height: 200;">
 
 <script> 
+var correct=0
+var wrong=0
+count=0
 
 function resolveForm (){
     console.log("Getting form values")
@@ -33,6 +39,22 @@ function resolveForm (){
         out.innerHTML = "Values were not confirmed"
     }
 }
+function newImage(){
+            switch(count){
+                case 0 :
+                    document.getElementById("images").src="images/Peacock.jpg"
+                    count = count+1
+                    break;
+                case 1 :
+                    document.getElementById("images").src="images/Ostrich.jpg"
+                    count = count+1
+                    break;
+                case 2 :
+                    document.getElementById("images").src="images/owl.jpg"
+                    count = 0
+                    break;                    
+            }
+        }
 </script>
 
 </body>
