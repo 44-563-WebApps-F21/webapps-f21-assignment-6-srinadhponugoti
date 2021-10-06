@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
- <head>
-     <title>catch a ride</title>
-     <meta charset="utf-8">
+
+<head>
+    <title>catch a ride</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -13,49 +14,53 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
         integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
-        <style>
-            header{
-                color: blueviolet;
-                background-color: yellowgreen;
-            }
-            h2{
-                background-color: orangered;
-                color: peru;
-            }
-            p{
-                color: skyblue;
-            }
-        </style>
- </head>
+    <style>
+        header {
+            color: maroon;
+            background-color: yellowgreen;
+        }
+
+        h2 {
+            background-color: lightgreen;
+            color: red
+        }
+
+        p {
+            color: crimson;
+        }
+    </style>
+</head>
+
 <body>
     <header>Pass phrase by SrinadhPonugoti</header>
 
-<h2>Getting input</h2>
+    <h2>Getting input</h2>
 
-<form>
-    <div class="form-group" style="width: 25%;">
-    <label for="form_phrase">Enter the Secret phrase </label>
-    <input type="password" id="form_phrase" name="form_phrase" value="Let me in">
-    </div>
+    <form>
+        <div class="form-group" style="width: 45%;">
+            <label for="form_phrase" class="form-label">Enter the Secret phrase </label>
+            <input type="password" class="form-control" id="form_phrase" name="form_phrase" value="Let me in">
+        </div>
+        <div class="form-group" style="width: 45%;">
+            <label for="form_test" class="form-label">Enter a phrase</label>
+            <input type="text" class="form-control" id="form_test" name="form_test" autofocus> <br>
+        </div>
+        <input type="button" onclick="processPhrase()" value="Check the phrase" id="processButton"
+            class="btn btn-primary">
+
+    </form>
+
+
+    <p id="result">This text will be replaced </p>
     <br>
-    <div class="form-group" style="width: 25%;">
-    <label for="form_test">Enter a phrase</label>
-    <input type="text" id="form_test" name="form_test" autofocus> <br>
-</div>
-    <input type="button" onclick="processPhrase()" value="Check the phrase"id="processButton" class="btn btn-primary">
+    <img src="images/Ostrich.jpeg" class="img-thumbnail" alt="Ostrich" onclick="newImage();" id="images"
+        style="width: 200; height: 200;">
 
-</form>
-
-
-<p id="result">This text will be replaced </p>
-<br>
-<img src="images/Ostrich.jpeg" class="img-thumbnail" alt="Ostrich" onclick="newImage();" id="images" style="width: 200; height: 200;">
-
-<script> 
-correct = 0
+    <script>
+        correct = 0
         wrong = 0
-        count=0
-      
+        count = 0
+
         function processPhrase() {
             console.log("Getting form values")
             secret = document.getElementById("form_phrase").value
@@ -66,36 +71,33 @@ correct = 0
             } else {
                 wrong = wrong + 1
                 alert("Access denied")
-                wrong = wrong + 1
-                alert("Access denied")
-                if(wrong >= 2){
-                document.getElementById("processButton").onclick=function(){alert("Account Locked")}
-                }	
+                if (wrong >= 2) {
+                    document.getElementById("processButton").onclick = function () { alert("Account Locked") }
+                }
             }
-            out = document.getElementById("result")
-            }
-
             out = document.getElementById("result")
             out.innerHTML = "Correct Count: " + correct + " ,Wrong Count: " + wrong
 
-        
-        function newImage(){
-            switch(count){
-                case 0 :
-                    document.getElementById("images").src="images/owl.jpg"
-                    count = count+1
+        }
+
+        function newImage() {
+            switch (count) {
+                case 0:
+                    document.getElementById("images").src = "images/owl.jpg"
+                    count = count + 1
                     break;
-                case 1 :
-                    document.getElementById("images").src="images/peacock.jpg"
-                    count = count+1
+                case 1:
+                    document.getElementById("images").src = "images/peacock.jpg"
+                    count = count + 1
                     break;
-                case 2 :
-                    document.getElementById("images").src="images/Ostrich.jpg"
+                case 2:
+                    document.getElementById("images").src = "images/Ostrich.jpg"
                     count = 0
-                    break;                    
+                    break;
             }
         }
-</script>
+    </script>
 
 </body>
-</html> 
+
+</html>
